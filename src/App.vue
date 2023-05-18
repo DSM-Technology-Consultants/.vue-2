@@ -1,24 +1,18 @@
 <script>
 export default {
-  data() {
-    return {
-      appName: this.$parent.env.appName,
-    };
-  },
-
   created() {
     this.setTitle();
   },
 
   methods: {
     setTitle: function() {
-      document.title = `${this.$route.name} - ${this.appName}`;
+      document.title = `${this.$route.name} - ${this.$app.name}`;
     },
   },
 
   watch: {
     $route(to) {
-      document.title = `${to.name} - ${this.appName}`;
+      document.title = `${to.name} - ${this.$app.name}`;
     },
   },
 };
